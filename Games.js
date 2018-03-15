@@ -2,19 +2,9 @@ var texto = "";
 function OnStart()
 {
 	//Create a layout with objects vertically centered.
-    var lay = app.CreateLayout("linear", "VCebter,FillXY");
+    var lay = app.CreateLayout("Linear", "VCenter,FillXY");
     lay.SetBackGradientRadial(0.7, 0.2, 0.5, "#24516B", "#000000");
-	lay = app.CreateLayout( "linear", "VCenter,FillXY" );	
-	
-	//Create a button
-	//btn = app.CreateButton("Comenzar", 0.4, 0.1, "Custom" );
-	//btn.SetMargins( 0, 0.75, 0, 0 );
-	//btn.SetStyle( "#1776b2", "#1776b2", 9.5 );//#Color bordes, #Color fondo, Cantos del botón
-    //btn.SetTextShadow( 10, 0, 1, "#1776b2" );
-	//lay.AddChild( btn );
-
-	//Set function to call when button pressed.
-	// btn.SetOnTouch( btn_OnTouch );
+    lay = app.CreateLayout( "Linear", "VCenter,FillXY" );	
 	
 	//Lock screen orientation to Portrait.
     app.SetOrientation( "Portrait" );
@@ -24,9 +14,9 @@ function OnStart()
 	layMain.SetBackground( "/Sys/Img/Sky.jpg" );
 
 	//Create a text label and add it to main layout.
-    txt = app.CreateText( "Elige un juego en el \ndesplegable de la izquierda", 0.8, 0.2, "Multiline" );
-    txt.SetTextSize( 24, "dip" );
-    txt.SetTextColor( "#1776b2" );
+        txt = app.CreateText( "Elige un juego en el \ndesplegable de la izquierda", 0.8, 0.2, "Multiline" );
+        txt.SetTextSize( 24, "dip" );
+        txt.SetTextColor( "#1776b2" );
 	layMain.AddChild( txt );
 	
 	//Create a drawer containing a menu list.
@@ -39,44 +29,11 @@ function OnStart()
 	//Add layout to app.
 	app.AddLayout( lay );
 }
-//Called when user touches our button.
-function btn_OnTouch()
-{
-	var num_participantes=0;
-	//Show a popup message.
-	//app.ShowPopup( "Your time is over" );
+
     
-    num_participantes = prompt("Número de participantes: ");
-        
-    if (num_participantes>=2)
-        ShowRandom( num_participantes );
-    else{
-        if (num_participantes<2 && num_participantes != "" && num_participantes != null)
-            alert("Este juego no tiene sentido");
-        else
-            alert("Introduzca un número válido.");
-        }
-	
-	//Vibrate phone with a pattern (in milliseconds).
-	//pause,vibrate,pause,vibrate...
-	//app.Vibrate( "30,100,50,150" );
-}
-
-
-function ShowRandom( range )
-{
-    var num = Math.random() * (range-1);
-    num = Math.round(num)+1;
-    alert( num );
-}
-    
-
-
-//Create the drawer contents.
 function CreateDrawer()
 {
     //Create a layout for the drawer.
-	//(Here we also put it inside a scroller to allow for long menus)
 	drawerWidth = 0.65;
     drawerScroll = app.CreateScroller( drawerWidth, 1 );
     drawerScroll.SetBackColor( "White" );
@@ -89,20 +46,15 @@ function CreateDrawer()
 	layDrawerTop.SetSize( drawerWidth, 0.23 );
 	layDrawer.AddChild( layDrawerTop );
 	
-	//Add an icon to top layout.
-	//var img = app.CreateImage( "/Sys/Img/Icon.png", 0.15 );
-	//img.SetPosition( drawerWidth*0.06, 0.04 );
-	//layDrawerTop.AddChild( img );
-	
 	//Add user name to top layout.
-	var txtUser = app.CreateText( "Sandra B." ,-1,-1,"Bold");
+	var txtUser = app.CreateText( "Name" ,-1,-1,"Bold");
 	txtUser.SetPosition( drawerWidth*0.07, 0.155 );
 	txtUser.SetTextColor( "White" );
 	txtUser.SetTextSize( 13.7, "dip" );
 	layDrawerTop.AddChild( txtUser );
 	
 	//Add user email to top layout.
-	txtNick = app.CreateText( "xula_la_isla" );
+	txtNick = app.CreateText( "Nickname" );
 	txtNick.SetPosition( drawerWidth*0.07, 0.185 );
 	txtNick.SetTextColor( "#bbbbbbfff" );
 	txtNick.SetTextSize( 14, "dip" );
@@ -189,22 +141,12 @@ function CifrasYLetras(){
 	
     var lay = app.CreateLayout("linear", "VCenter,FillXY");
     lay.SetBackGradientRadial(0.7, 0.2, 0.5, "#24516B", "#000000");
-
-	//CreateDrawer();
-	
-	//Add main layout and drawer to app.	
-	//app.AddLayout( layMain );
-	//app.AddDrawer( drawerScroll, "Left", drawerWidth );
-	
-	//Add layout to app.
-	//app.AddLayout( lay );
 	
     //lista 
     lst = app.CreateList(null, 1, 0.7, "Left,Top");
     lst.SetMargins(0, 0);
     lst.RemoveAll();
     lst.SetMargins(0, 0.05, 0, 0);
-    //lst.SetOnLongTouch(lst_pulsacionLarga);
     lst.SetTextSize1(15);
     lst.SetTextSize2(14);
     lay.AddChild(lst);
@@ -213,27 +155,20 @@ function CifrasYLetras(){
     lay.AddChild(layBut);
     
     app.AddLayout( layMain );
-	app.AddDrawer( drawerScroll, "Left", drawerWidth );
+    app.AddDrawer( drawerScroll, "Left", drawerWidth );
 	
-	lay = app.CreateLayout( "Linear", "Horizontal,FillXY" );
+    lay = app.CreateLayout( "Linear", "Horizontal,FillXY" );
 
 
   layLight =  app.CreateLayout( "Linear", "Vertical,FillXY" );
   layLight.SetPadding( 0.05, 0.05, 0.05, 0.05 );
-  //layLight.SetPadding( 0.05, 0.05, 0.05, 0.05 );
   lay.AddChild( layLight );
   
   //style params: color1,color2,radius,strokeClr,strokeWidth,shadow
   b = app.CreateButton( "Cifras", 0.9, 0.45, "Custom" );
   b.SetStyle( "#4192f4", "#4192f4", 10 );
-  //b.SetMargins(0,0.5,0,0);
-  //b.SetTextShadow( 5, 3, -1, "#fca52a" );
   b.SetOnTouch(cifras);
   layLight.AddChild( b );
-  
-  //layLight2 =  app.CreateLayout( "Linear", "Vertical" );
-  //layLight2.SetPadding( 0, 0.05, 0.05, 0.09 );
-  //lay.AddChild( layLight2 );
   
   b2 = app.CreateButton( "Letras", 0.9, 0.45, "Custom" );
   b2.SetStyle( "#cc351a", "#cc351a", 10 );
@@ -244,10 +179,6 @@ function CifrasYLetras(){
 
     	
   app.AddLayout( lay );
-  
-	
-	
-    
 	
 	//Add main layout and drawer to app.	
 	app.AddLayout( layMain );
@@ -300,11 +231,6 @@ function btn_Vocal(){
     
     aleatorio = Math.floor(Math.random() * 8);
     
-    //app.ShowPopup(posibles_vocales[aleatorio]);
-    //app.CreateList("1", "2");
-    //app.CreateTextEdit("1", "2")
-    //texto = aleatorio;
-    //textoLayout = app.CreateText(texto);
     var lay = app.CreateLayout("linear", "VCenter");
     if (texto == "")
         lst = app.CreateList(texto, 1, 0.7, "Left,Top");
