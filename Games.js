@@ -42,14 +42,14 @@ function CreateDrawer()
 	
 	//Create layout for top of drawer.
 	layDrawerTop = app.CreateLayout( "Absolute" );
-	layDrawerTop.SetBackground( "/Sys/Img/BlueBack.png" );
+	layDrawerTop.SetBackground( "/Sys/Img/BlueBack.jpg" );
 	layDrawerTop.SetSize( drawerWidth, 0.23 );
 	layDrawer.AddChild( layDrawerTop );
 	
 	//Add user name to top layout.
 	var txtUser = app.CreateText( "Name" ,-1,-1,"Bold");
 	txtUser.SetPosition( drawerWidth*0.07, 0.155 );
-	txtUser.SetTextColor( "Blue" );
+	txtUser.SetTextColor( "White" );
 	txtUser.SetTextSize( 13.7, "dip" );
 	layDrawerTop.AddChild( txtUser );
 	
@@ -137,7 +137,7 @@ function CifrasYLetras(){
     
 	//Create the main app layout with objects vertically centered.
 	layMain = app.CreateLayout( "Linear", "VCenter,FillXY" );
-	layMain.SetBackground( "/Sys/Img/GreenBack.png" );
+	layMain.SetBackground( "/Sys/Img/GreenBack.jpg" );
 	
     var lay = app.CreateLayout("linear", "VCenter,FillXY");
     lay.SetBackGradientRadial(0.7, 0.2, 0.5, "#24516B", "#000000");
@@ -436,21 +436,4 @@ function Pictionary(){
 	
 	//Add layout to app.
 	app.AddLayout( lay );
-    
-    
-}
-
-function btn_actualizar() {
-    lst.RemoveAll();
-}
-
-
-function showSeconds(seg){
-    app.ShowPopup(10-seg);
-    
-}
-
-function Update( progress )
-{
-    app.ShowPopup(progress + " segs");
 }
