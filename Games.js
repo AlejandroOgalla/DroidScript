@@ -439,6 +439,7 @@ function Pictionary(){
 }
 
 
--function Update( progress )
--{
--    app.ShowPopup(progress + " segs");
+function Update( progress )
+{
+   app.ShowPopup(progress + " segs");
+}
