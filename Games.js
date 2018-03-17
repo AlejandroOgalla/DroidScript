@@ -49,7 +49,7 @@ function CreateDrawer()
 	//Add user name to top layout.
 	var txtUser = app.CreateText( "Name" ,-1,-1,"Bold");
 	txtUser.SetPosition( drawerWidth*0.07, 0.155 );
-	txtUser.SetTextColor( "White" );
+	txtUser.SetTextColor( "Blue" );
 	txtUser.SetTextSize( 13.7, "dip" );
 	layDrawerTop.AddChild( txtUser );
 	
@@ -181,28 +181,26 @@ function CifrasYLetras(){
   app.AddLayout( lay );
 	
 	//Add main layout and drawer to app.	
-	app.AddLayout( layMain );
+	//app.AddLayout( layMain );
 	app.AddDrawer( drawerScroll, "Left", drawerWidth );
 }
 
 function letras(){ 
-  	layMain = app.CreateLayout( "Linear", "VCenter,FillXY" );
-	layMain.SetBackground( "/Sys/Img/GreenBack.png" );
-	layMain.AddChild
-	app.AddLayout( layMain );
-  lay = app.CreateLayout( "Linear", "Horizontal,FillXY" );
+    layMain = app.CreateLayout( "Linear", "VCenter,FillXY" );
+    layMain.SetBackground( "/Sys/Img/GreenBack.jpg" );
+	//layMain.AddChild
+	//app.AddLayout( layMain );
+    lay = app.CreateLayout( "Linear", "Horizontal,FillXY" );
 
-  layLight =  app.CreateLayout( "Linear", "Horizontal" );
-  layLight.SetPadding( 0.15, 0.8, 0.1, 0.1 );
-  lay.AddChild( layLight );
+    layLight =  app.CreateLayout( "Linear", "Horizontal" );
+    layLight.SetPadding( 0.15, 0.8, 0.1, 0.1 );
+    lay.AddChild( layLight );
   
-  //style params: color1,color2,radius,strokeClr,strokeWidth,shadow
-  b = app.CreateButton( "Vocal", 0.35, 0.12, "Custom" );
-  b.SetStyle( "#fca52a", "#fca52a", 10 );
-  //b.SetMargins(0,0.5,0,0);
-  //b.SetTextShadow( 5, 3, -1, "#fca52a" );
-  b.SetOnTouch(btn_Vocal);
-  layLight.AddChild( b );
+    //style params: color1,color2,radius,strokeClr,strokeWidth,shadow
+    b = app.CreateButton( "Vocal", 0.35, 0.12, "Custom" );
+    b.SetStyle( "#fca52a", "#fca52a", 10 );
+    b.SetOnTouch(btn_Vocal);
+    layLight.AddChild( b );
   
   layLight2 =  app.CreateLayout( "Linear", "Horizontal" );
   layLight2.SetPadding( 0.4, 0.1, 0.5, 0.1 );
@@ -211,11 +209,9 @@ function letras(){
   b2 = app.CreateButton( "Consonante", 0.35, 0.12, "Custom" );
   b2.SetStyle( "#4285F4", "#4285F4", 10 );
   b2.SetOnTouch(btn_Consonante);
-  //b2.SetMargins(0.5,0.5,0,0);
-  //b2.SetTextShadow( 5, 3, -1, "#4285F4" );
   layLight.AddChild( b2 );
 
-    	
+  app.AddLayout( layMain );
   app.AddLayout( lay );
 }
 
@@ -324,8 +320,6 @@ function btn_Consonante(){
     }
     
     lst.AddItem("Letras", texto);
-    //lst = app.SaveText(lst, lst);
-
     
     lay.AddChild(lst);
     app.AddLayout(lay);
@@ -338,7 +332,7 @@ function btn_Consonante(){
 
 function cifras(){
   	layMain = app.CreateLayout( "Linear", "VCenter,FillXY" );
-	layMain.SetBackground( "/Sys/Img/GreenBack.png" );
+	layMain.SetBackground( "/Sys/Img/GreenBack.jpg" );
 	layMain.AddChild
 	app.AddLayout( layMain );
 	
@@ -446,9 +440,6 @@ function Pictionary(){
     
 }
 
-
-
-
 function btn_actualizar() {
     lst.RemoveAll();
 }
@@ -462,9 +453,4 @@ function showSeconds(seg){
 function Update( progress )
 {
     app.ShowPopup(progress + " segs");
-}
-
-function Hide()
-{
-    app.HideProgressBar();
 }
