@@ -437,3 +437,8 @@ function Pictionary(){
 	//Add layout to app.
 	app.AddLayout( lay );
 }
+
+
+-function Update( progress )
+-{
+-    app.ShowPopup(progress + " segs");
